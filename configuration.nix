@@ -20,16 +20,21 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "pentaxis93";
 
-  # Install packaged software
+  # Firefox
   programs.firefox.enable = true;
 
   # Install additional packages  
   environment.systemPackages = with pkgs; [
-    git
-    lazygit
-    neovim
-    tree
+    curl	# Transfer data with urls
+    git		# version control
+    lazygit	# UI for git
+    neovim	# Editor
+    tree	# Handy directory tree tool
+    wget	# Download files from the web
   ];
+
+  # Default editor
+  environment.variables.EDITOR = "nvim";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -89,7 +94,10 @@
   # This is the original NixOS release from which default settings were taken. Don't change it.
   system.stateVersion = "23.11";
 
-  # Enable flakes-based configuration (much better)
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable Flakes and the new CLI tools that go with it
+  nix.settings.experimental-features = [
+    "flakes"
+    "nix-command"
+  ];
 
 }
