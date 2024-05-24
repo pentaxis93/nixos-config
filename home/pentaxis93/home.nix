@@ -6,6 +6,10 @@
   home.username = "pentaxis93";
   home.homeDirectory = "/home/pentaxis93";
 
+  imports = [
+    ./zsh.nix
+  ];
+
   # User-specific packages
   home.packages = with pkgs; [
     cowsay	# Talking cow
