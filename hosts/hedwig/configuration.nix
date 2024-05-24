@@ -34,10 +34,6 @@
     ];
   };
 
-  # Automatic login
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "pentaxis93";
-
   # Firefox
   programs.firefox.enable = true;
 
@@ -80,7 +76,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Define your hostname.
-  networking.hostName = "oreb";
+  networking.hostName = "hedwig";
 
   # Enable networking
   networking.networkmanager.enable = true;

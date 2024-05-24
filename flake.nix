@@ -26,10 +26,10 @@
       ];
     };
 
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./hosts/laptop/configuration.nix
+        ./hosts/hedwig/configuration.nix
 	home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
