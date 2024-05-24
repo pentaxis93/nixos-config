@@ -23,6 +23,15 @@
   # Firefox
   programs.firefox.enable = true;
 
+  # nh, a nix command helper
+  # TODO: Make default flake work
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/pentaxis93/.dotfiles";
+  };
+
   # Install additional packages  
   environment.systemPackages = with pkgs; [
     curl	# Transfer data with urls
@@ -30,7 +39,6 @@
     lazygit	# UI for git
     mc		# Midnight Commander, a terminal file manager
     neovim	# Editor
-    nh		# Nix command helper
     tree	# Handy directory tree tool
     wget	# Download files from the web
   ];
