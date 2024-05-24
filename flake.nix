@@ -25,5 +25,19 @@
         }
       ];
     };
+
+    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/laptop/configuration.nix
+	home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.pentaxis93 = import ./home/pentaxis93/home.nix;
+          home-manager.users.mark = import ./home/mark/home.nix;
+        }
+      ];
+    };
   };
 }
