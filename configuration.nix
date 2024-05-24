@@ -28,7 +28,9 @@
     curl	# Transfer data with urls
     git		# version control
     lazygit	# UI for git
+    mc		# Midnight Commander, a terminal file manager
     neovim	# Editor
+    nh		# Nix command helper
     tree	# Handy directory tree tool
     wget	# Download files from the web
   ];
