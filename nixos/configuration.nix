@@ -35,12 +35,16 @@
   # Install additional packages  
   environment.systemPackages = with pkgs; [
     curl	# Transfer data with urls
-    git		# version control
+    fd		# File finder
+    gcc		# GNU compiler collection for C/C++
+    git		# Version control
     lazygit	# UI for git
     mc		# Midnight Commander, a terminal file manager
     neovim	# Editor
+    ripgrep	# Fast search tool
     tree	# Handy directory tree tool
     wget	# Download files from the web
+    xsel	# Clipboard utility
   ];
 
   # Default editor
