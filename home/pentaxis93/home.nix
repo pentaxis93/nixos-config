@@ -7,6 +7,7 @@
   home.homeDirectory = "/home/pentaxis93";
 
   imports = [
+    ./git.nix
     ./zsh.nix
   ];
 
@@ -14,16 +15,6 @@
   home.packages = with pkgs; [
     cowsay	# Talking cow
   ];
-
-  # Git configuration
-  programs.git = {
-    enable = true;
-    userName = "pentaxis93";
-    userEmail = "13393192+pentaxis93@users.noreply.github.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
 
   # Set environment variables
   home.sessionVariables = {
