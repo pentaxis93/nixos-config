@@ -2,8 +2,8 @@
   description = "Flake of pentaxis93 & mark";
 
   inputs = {
-    # NixOS official package source, using the nixos-23.11 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    # NixOS official package source, hopefully the most recent stable version
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
