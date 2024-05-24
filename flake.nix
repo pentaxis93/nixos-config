@@ -21,6 +21,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.pentaxis93 = import ./home/pentaxis93/home.nix;
+          home-manager.users.mark = import ./home/mark/home.nix;
         }
       ];
     };

@@ -16,6 +16,15 @@
     ];
   };
 
+  users.users.mark = {
+    isNormalUser = true;
+    description = "Mark Grossman";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kate
+    ];
+  };
+
   # Automatic login
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "pentaxis93";
