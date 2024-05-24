@@ -15,7 +15,7 @@
     nixosConfigurations.oreb = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./nixos/configuration.nix
+        ./hosts/oreb/configuration.nix
 	home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
