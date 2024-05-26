@@ -50,6 +50,7 @@
     lazygit	# UI for git
     mc		# Midnight Commander, a terminal file manager
     neovim	# Editor
+    ranger	# Ranger, a vim-style file manager
     ripgrep	# Fast search tool
     tree	# Handy directory tree tool
     wget	# Download files from the web
