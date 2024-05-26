@@ -56,6 +56,10 @@
     xsel	# Clipboard utility
   ];
 
+  # Enable zsh and make default for all users
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Default editor
   environment.variables.EDITOR = "nvim";
 
