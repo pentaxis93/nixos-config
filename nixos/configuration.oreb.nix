@@ -131,6 +131,8 @@
     kate	# KDE text editor
     lazygit	# UI for git
     mc		# Midnight Commander, a terminal file manager
+    nodejs	# Runtime for JavaScript
+    python3	# Python programming language
     ranger	# Ranger, a vim-style file manager
     ripgrep	# Fast search tool
     tree	# Handy directory tree tool
@@ -144,6 +146,9 @@
 
   # Default editor
   environment.variables.EDITOR = "nvim";
+
+  # npm - "node package manager" for web dev
+  programs.npm.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
