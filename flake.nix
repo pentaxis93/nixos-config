@@ -45,6 +45,7 @@
           {
             home-manager.useUserPackages = true;
             home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
+            home-manager.users.mark = import ./home-manager/home.mark.nix;
           }
         ];
       };
@@ -56,7 +57,7 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
-	    home-manager.backupFileExtension = "backup";
+            home-manager.backupFileExtension = "backup";
             home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
           }
         ];
