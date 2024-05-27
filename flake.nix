@@ -11,19 +11,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neve.url = "github:redyf/Neve";
+
     # Nixvim
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # url = "github:nix-community/nixvim/nixos-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:nix-community/nixvim";
+    #   # url = "github:nix-community/nixvim/nixos-24.05";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    nixvim,
+    neve,
+    # nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -33,6 +36,18 @@
       #   specialArgs = {inherit inputs outputs;};
       #   modules = [./nixos/configuration.hedwig.nix];
       # };
+
+      hedwig = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/configuration.hedwig.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useUserPackages = true;
+            home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
+          }
+        ];
+      };
 
       oreb = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
