@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   lib,
@@ -7,7 +5,6 @@
   pkgs,
   ...
 }: {
-  # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -16,13 +13,10 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
-    # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.oreb.nix
-    # inputs.nixvim.nixosModules.nixvim
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -36,7 +30,6 @@
     ];
     # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
@@ -60,8 +53,6 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # FIXME: Add the rest of your current configuration
-
   # Automatic login
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "pentaxis93";
@@ -77,50 +68,6 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/pentaxis93/.dotfiles";
   };
-
-  # TODO: Implement modular config structure
-  # Note: This causes a 'file not found' error, I have no idea why
-  # Nixvim setup
-  #  programs.nixvim = {
-  #    enable = true;
-  #    defaultEditor = true;
-  #
-  #    opts = {
-  #      number = true;
-  #      relativenumber = true;
-  #      shiftwidth = 2;
-  #      undofile = true;
-  #    };
-  #
-  #    plugins = {
-  #      cmp = {
-  # enable = true;
-  # autoEnableSources = true;
-  #      };
-  #
-  #      comment.enable = true;
-  #
-  #      lazygit.enable = true;
-  #
-  #      leap.enable = true;
-  #
-  #      lightline.enable = true;
-  #
-  #      lsp = {
-  #        enable = true;
-  # servers = {
-  #   nil_ls.enable = true;
-  #   tsserver.enable = true;
-  #        };
-  #      };
-  #
-  #      neo-tree.enable = true;
-  #
-  #      telescope.enable = true;
-  #
-  #      treesitter.enable = true;
-  #    };
-  #  };
 
   # Install additional packages
   environment.systemPackages = with pkgs; [
