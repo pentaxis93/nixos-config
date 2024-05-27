@@ -18,7 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.oreb.nix
-    inputs.nixvim.nixosModules.nixvim
+    # inputs.nixvim.nixosModules.nixvim
   ];
 
   nixpkgs = {
@@ -81,63 +81,75 @@
   # TODO: Implement modular config structure
   # Note: This causes a 'file not found' error, I have no idea why
   # Nixvim setup
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
+  #  programs.nixvim = {
+  #    enable = true;
+  #    defaultEditor = true;
+  #
+  #    opts = {
+  #      number = true;
+  #      relativenumber = true;
+  #      shiftwidth = 2;
+  #      undofile = true;
+  #    };
+  #
+  #    plugins = {
+  #      cmp = {
+  # enable = true;
+  # autoEnableSources = true;
+  #      };
+  #
+  #      comment.enable = true;
+  #
+  #      lazygit.enable = true;
+  #
+  #      leap.enable = true;
+  #
+  #      lightline.enable = true;
+  #
+  #      lsp = {
+  #        enable = true;
+  # servers = {
+  #   nil_ls.enable = true;
+  #   tsserver.enable = true;
+  #        };
+  #      };
+  #
+  #      neo-tree.enable = true;
+  #
+  #      telescope.enable = true;
+  #
+  #      treesitter.enable = true;
+  #    };
+  #  };
 
-    opts = {
-      number = true;
-      relativenumber = true;
-      shiftwidth = 2;
-      undofile = true;
-    };
-
-    plugins = {
-      cmp = {
-	enable = true;
-	autoEnableSources = true;
-      };	
-      
-      comment.enable = true;
-
-      lazygit.enable = true;
-
-      leap.enable = true;
-
-      lightline.enable = true;
-
-      lsp = {
-        enable = true;
-	servers = {
-	  nil_ls.enable = true;
-	  tsserver.enable = true;
-        };
-      };
-
-      neo-tree.enable = true;
-
-      telescope.enable = true;
-
-      treesitter.enable = true;
-    };
-  };
-
-  # Install additional packages  
+  # Install additional packages
   environment.systemPackages = with pkgs; [
-    curl	# Transfer data with urls
-    fd		# File finder
-    gcc		# GNU compiler collection for C/C++
-    git		# Version control
-    kate	# KDE text editor
-    lazygit	# UI for git
-    mc		# Midnight Commander, a terminal file manager
-    nodejs	# Runtime for JavaScript
-    python3	# Python programming language
-    ranger	# Ranger, a vim-style file manager
-    ripgrep	# Fast search tool
-    tree	# Handy directory tree tool
-    wget	# Download files from the web
-    xsel	# Clipboard utility
+    curl # Transfer data with urls
+    fd # File finder
+    gcc # GNU compiler collection for C/C++
+    git # Version control
+    kate # KDE text editor
+    lazygit # UI for git
+    mc # Midnight Commander, a terminal file manager
+    nerdfonts # Awesome fonts with icons
+    nodejs # Runtime for JavaScript
+    python3 # Python programming language
+    ranger # Ranger, a vim-style file manager
+    ripgrep # Fast search tool
+    tree # Handy directory tree tool
+    wget # Download files from the web
+    xsel # Clipboard utility
+
+    inputs.neve.packages.${pkgs.system}.default
+
+    # Formatters
+    alejandra
+    python3Packages.black
+    google-java-format
+    nodePackages.prettier
+    prettierd
+    rustfmt
+    stylua
   ];
 
   # Enable zsh and make default for all users
@@ -210,7 +222,7 @@
       initialPassword = "password";
       isNormalUser = true;
       # openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["networkmanager" "wheel"];
@@ -222,10 +234,10 @@
   # services.openssh = {
   #   enable = true;
   #   settings = {
-      # Opinionated: forbid root login through SSH.
+  # Opinionated: forbid root login through SSH.
   #     PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
+  # Opinionated: use keys only.
+  # Remove if you want to SSH using passwords
   #     PasswordAuthentication = false;
   #   };
   # };
