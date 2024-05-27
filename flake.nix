@@ -1,43 +1,50 @@
 {
-  description = "Flake of pentaxis93 & mark";
+  description = "Flake of pentaxis93 + CatsAreCuteAndFast";
 
   inputs = {
-    # NixOS official package source, hopefully the most recent stable version
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    # Nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.oreb = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/oreb/configuration.nix
-	home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.pentaxis93 = import ./home/pentaxis93/home.nix;
-          home-manager.users.mark = import ./home/mark/home.nix;
-        }
-      ];
-    };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixvim,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+  in {
+    nixosConfigurations = {
+      # hedwig = nixpkgs.lib.nixosSystem {
+      #   specialArgs = {inherit inputs outputs;};
+      #   modules = [./nixos/configuration.hedwig.nix];
+      # };
 
-    nixosConfigurations.hedwig = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/hedwig/configuration.nix
-	home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.pentaxis93 = import ./home/pentaxis93/home.nix;
-          home-manager.users.mark = import ./home/mark/home.nix;
-        }
-      ];
+      oreb = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/configuration.oreb.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useUserPackages = true;
+            home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
+          }
+        ];
+      };
     };
   };
 }
