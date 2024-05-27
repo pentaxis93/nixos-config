@@ -97,8 +97,18 @@
 	enable = true;
 	autoEnableSources = true;
       };	
+
+      cmp-buffer.enable = true;
+      
+      cmp-nvim-lsp.enable = true;
+
+      cmp-path.enable = true;
       
       comment.enable = true;
+
+      gitsigns.enable = true;
+
+      flash.enable = true;
 
       lazygit.enable = true;
 
@@ -114,11 +124,23 @@
         };
       };
 
+      mini = {
+	enable = true;
+	modules = {
+	  pairs = {};
+	  ai = {};
+	};
+      };
+
       neo-tree.enable = true;
 
       telescope.enable = true;
 
+      todo-comments.enable = true;
+
       treesitter.enable = true;
+
+      trouble.enable = true;
     };
   };
 
@@ -213,9 +235,14 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "sudo"];
     };
   };
+
+  # Configure sudo to not require a password for users in the 'sudo' group
+  security.sudo.extraConfig = ''
+    %sudo ALL=(ALL:ALL) NOPASSWD: ALL
+  '';
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
