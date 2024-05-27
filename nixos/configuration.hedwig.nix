@@ -154,7 +154,7 @@
     pulse.enable = true;
   };
 
-  networking.hostName = "oreb";
+  networking.hostName = "hedwig";
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
