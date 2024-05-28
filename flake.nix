@@ -32,11 +32,6 @@
     inherit (self) outputs;
   in {
     nixosConfigurations = {
-      # hedwig = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {inherit inputs outputs;};
-      #   modules = [./nixos/configuration.hedwig.nix];
-      # };
-
       hedwig = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
@@ -44,8 +39,9 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
-            home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
+            home-manager.backupFileExtension = "backup";
             home-manager.users.mark = import ./home-manager/home.mark.nix;
+            home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
           }
         ];
       };
