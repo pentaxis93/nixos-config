@@ -74,6 +74,7 @@
     curl # Transfer data with urls
     fd # File finder
     gcc # GNU compiler collection for C/C++
+    gimp # Image manipulation
     git # Version control
     kate # KDE text editor
     lazygit # UI for git
