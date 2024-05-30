@@ -162,14 +162,16 @@
 
   networking.hostName = "oreb";
 
+  users.groups.sudo = {};
+
   users.users = {
     pentaxis93 = {
+      extraGroups = ["networkmanager" "wheel" "sudo"];
       initialPassword = "password";
       isNormalUser = true;
       # openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
-      extraGroups = ["networkmanager" "wheel" "sudo"];
     };
   };
 

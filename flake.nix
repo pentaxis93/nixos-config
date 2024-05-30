@@ -11,14 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neve.url = "github:redyf/Neve";
-
-    # Nixvim
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   # url = "github:nix-community/nixvim/nixos-24.05";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # Neve
+    neve.url = "github:pentaxis93/Neve";
   };
 
   outputs = {
@@ -26,7 +20,6 @@
     nixpkgs,
     home-manager,
     neve,
-    # nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
