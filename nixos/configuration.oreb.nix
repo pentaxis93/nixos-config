@@ -177,7 +177,7 @@
 
   # Configure sudo to not require a password for users in the 'sudo' group
   security.sudo.extraConfig = ''
-    %sudo ALL=(ALL:ALL) NOPASSWD: ALL
+    pentaxis93 ALL=(ALL:ALL) NOPASSWD: ALL
   '';
 
   # This setups a SSH server. Very important if you're setting up a headless system.

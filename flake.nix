@@ -13,6 +13,7 @@
 
     # Neve
     neve.url = "github:pentaxis93/Neve";
+    # neve.url = "github:redyf/Neve";
   };
 
   outputs = {
