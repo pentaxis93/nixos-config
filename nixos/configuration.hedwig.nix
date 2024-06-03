@@ -70,7 +70,9 @@
     curl # Transfer data with urls
     fd # File finder
     gcc # GNU compiler collection for C/C++
+    cowsay # Say something
     gimp # Image manipulation
+    fortune # A fortune cookie generator
     git # Version control
     kate # KDE text editor
     lazygit # UI for git

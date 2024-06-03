@@ -71,8 +71,10 @@
 
   # Install additional packages
   environment.systemPackages = with pkgs; [
+    cowsay # Cow says something
     curl # Transfer data with urls
     fd # File finder
+    fortune # A fortune cookie generator
     gcc # GNU compiler collection for C/C++
     gimp # Image manipulation
     git # Version control
