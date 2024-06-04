@@ -202,11 +202,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1717248642,
-        "narHash": "sha256-tUBLPnBnH6eKEffOI9WZYL6ZyXU+5JqK0lEM6ok8PIA=",
+        "lastModified": 1717506991,
+        "narHash": "sha256-wpl8RLiE1gnvbkZHc1aw8Q+YiX8AtQy6jwqjuCiDUks=",
         "owner": "pentaxis93",
         "repo": "Neve",
-        "rev": "dd4c8aa90ad140fb8954463c0451e895c87b2454",
+        "rev": "74b6ef5cf227c134c1540e17c6bd84df0409b514",
         "type": "github"
       },
       "original": {

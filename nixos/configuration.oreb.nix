@@ -94,7 +94,7 @@
 
     # Formatters
     alejandra
-    python3Packages.black
+    black
     google-java-format
     nodePackages.prettier
     prettierd
