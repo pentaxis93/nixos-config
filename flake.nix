@@ -29,13 +29,13 @@
       hedwig = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/configuration.hedwig.nix
+          ./nixos/hedwig/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.mark = import ./home-manager/home.mark.nix;
-            home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
+            home-manager.users.mark = import ./home-manager/profiles/mark/home.nix;
+            home-manager.users.pentaxis93 = import ./home-manager/profiles/pentaxis93/home.nix;
           }
         ];
       };
@@ -43,12 +43,12 @@
       oreb = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/configuration.oreb.nix
+          ./nixos/oreb/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.pentaxis93 = import ./home-manager/home.pentaxis93.nix;
+            home-manager.users.pentaxis93 = import ./home-manager/profiles/pentaxis93/home.nix;
           }
         ];
       };

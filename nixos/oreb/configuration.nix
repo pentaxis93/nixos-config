@@ -13,7 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
-    ./hardware-configuration.hedwig.nix
+    ./hardware-configuration.nix
   ];
 
   nixpkgs = {
@@ -53,6 +53,10 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  # Automatic login
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "pentaxis93";
+
   # Firefox
   programs.firefox.enable = true;
 
@@ -67,12 +71,12 @@
 
   # Install additional packages
   environment.systemPackages = with pkgs; [
+    cowsay # Cow says something
     curl # Transfer data with urls
     fd # File finder
-    gcc # GNU compiler collection for C/C++
-    cowsay # Say something
-    gimp # Image manipulation
     fortune # A fortune cookie generator
+    gcc # GNU compiler collection for C/C++
+    gimp # Image manipulation
     git # Version control
     kate # KDE text editor
     lazygit # UI for git
@@ -113,7 +117,8 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -157,22 +162,38 @@
     pulse.enable = true;
   };
 
-  networking.hostName = "hedwig";
+  networking.hostName = "oreb";
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
+  users.groups.sudo = {};
+
   users.users = {
-    mark = {
-      initialPassword = "password";
-      isNormalUser = true;
-      extraGroups = ["networkmanager" "wheel"];
-    };
-
     pentaxis93 = {
+      extraGroups = ["networkmanager" "wheel" "sudo"];
       initialPassword = "password";
       isNormalUser = true;
-      extraGroups = ["networkmanager" "wheel"];
+      # openssh.authorizedKeys.keys = [
+      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      # ];
     };
   };
+
+  # Configure sudo to not require a password for users in the 'sudo' group
+  security.sudo.extraConfig = ''
+    pentaxis93 ALL=(ALL:ALL) NOPASSWD: ALL
+  '';
+
+  # This setups a SSH server. Very important if you're setting up a headless system.
+  # Feel free to remove if you don't need it.
+  # services.openssh = {
+  #   enable = true;
+  #   settings = {
+  # Opinionated: forbid root login through SSH.
+  #     PermitRootLogin = "no";
+  # Opinionated: use keys only.
+  # Remove if you want to SSH using passwords
+  #     PasswordAuthentication = false;
+  #   };
+  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
