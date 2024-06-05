@@ -13,6 +13,7 @@
     # inputs.nix-colors.homeManagerModule
     ../../config/zsh.nix
     ./git/git.nix
+    ./stylix/stylix.nix
   ];
 
   nixpkgs = {
