@@ -67,6 +67,10 @@
     };
   };
 
+  environment.sessionVariables = {
+    FLAKE = "/home/pentaxis93/.dotfiles";
+  };
+
   # Automatic login
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "pentaxis93";
