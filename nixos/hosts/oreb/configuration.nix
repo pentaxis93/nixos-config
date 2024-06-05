@@ -14,6 +14,7 @@
     # ./users.nix
 
     ./hardware-configuration.nix
+    ../../config/stylix.nix
   ];
 
   nixpkgs = {
@@ -51,20 +52,6 @@
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
-
-  stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = /home/pentaxis93/Angel_Images/ClearLight.jpg;
-    polarity = "dark";
-    fonts = {
-      sizes = {
-        applications = 12;
-        terminal = 24;
-        desktop = 12;
-        popups = 12;
-      };
-    };
   };
 
   environment.sessionVariables = {
