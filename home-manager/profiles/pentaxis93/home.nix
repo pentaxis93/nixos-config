@@ -11,6 +11,7 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
+    ../../config/hyprland.nix
     ../../config/zsh.nix
     ./git/git.nix
     ./stylix/stylix.nix

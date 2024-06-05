@@ -15,6 +15,7 @@
 
     ./hardware-configuration.nix
     ../../config/stylix.nix
+    ../../config/wayland.nix
   ];
 
   nixpkgs = {
