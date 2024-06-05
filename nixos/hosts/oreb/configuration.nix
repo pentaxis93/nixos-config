@@ -14,6 +14,7 @@
     # ./users.nix
 
     ./hardware-configuration.nix
+    ../../config/hyprland.nix
     ../../config/stylix.nix
   ];
 
