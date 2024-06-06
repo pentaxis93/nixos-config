@@ -5,7 +5,7 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-    ../../config/stylix.nix
+    # ../../config/stylix.nix
     ../../config/zsh.nix
 
     ./git.nix
