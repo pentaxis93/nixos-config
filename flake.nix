@@ -19,7 +19,6 @@
     self,
     nixpkgs,
     home-manager,
-    neve,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -29,7 +28,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hosts/hedwig/configuration.nix
-          inputs.stylix.nixosModules.stylix
+          # inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
@@ -44,7 +43,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hosts/oreb/configuration.nix
-          inputs.stylix.nixosModules.stylix
+          # inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;

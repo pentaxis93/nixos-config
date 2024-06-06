@@ -1,19 +1,14 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{stylix, ...}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
+    ../../config/stylix.nix
     ../../config/zsh.nix
-    ./git/git.nix
-    ./stylix/stylix.nix
+
+    ./git.nix
   ];
 
   nixpkgs = {
@@ -41,19 +36,15 @@
   home = {
     username = "pentaxis93";
     homeDirectory = "/home/pentaxis93";
+    sessionVariables = {
+      EDITOR = "nvim";
+      FLAKE = "/home/pentaxis93/.dotfiles";
+    };
   };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
-
-  # Wezterm
-  programs.wezterm.enable = true;
-  programs.wezterm.enableZshIntegration = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

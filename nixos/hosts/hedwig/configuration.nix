@@ -53,10 +53,6 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  environment.sessionVariables = {
-    FLAKE = "/home/mark/.dotfiles";
-  };
-
   # Firefox
   programs.firefox.enable = true;
 
