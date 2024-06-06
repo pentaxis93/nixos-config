@@ -20,7 +20,6 @@
     ../../config/file-managers/default.nix
     ../../config/network-tools/default.nix
     ../../config/stylix.nix
-    ../../config/terminals/default.nix
     ../../config/utilities/default.nix
 
     ../../config/hyprland.nix
