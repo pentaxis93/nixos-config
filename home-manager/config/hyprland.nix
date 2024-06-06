@@ -25,15 +25,12 @@
             10)
         );
     };
-    extraConfig = ''
-      bind = $mod, S, exec, rofi -show drun -show-icons
-      exec-once = bash ~/.config/hypr/start.sh
-    '';
   };
 
   home.packages = with pkgs; [
     dunst # Notification daemon
     networkmanagerapplet # Network manager
+    rofi # App launcher
     waybar # Status bar
   ];
 }

@@ -85,6 +85,7 @@
     gimp # Image manipulation
     git # Version control
     kate # KDE text editor
+    kitty # Terminal emulator
     lazygit # UI for git
     mc # Midnight Commander, a terminal file manager
     nerdfonts # Awesome fonts with icons
