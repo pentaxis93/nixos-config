@@ -33,6 +33,7 @@
           {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.mark = import ./home-manager/profiles/mark/home.nix;
             home-manager.users.pentaxis93 = import ./home-manager/profiles/pentaxis93/home.nix;
           }
@@ -47,6 +48,7 @@
           {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.pentaxis93 = import ./home-manager/profiles/pentaxis93/home.nix;
           }
           stylix.nixosModules.stylix

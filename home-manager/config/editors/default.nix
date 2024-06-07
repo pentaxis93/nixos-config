@@ -3,7 +3,7 @@
     ./neve.nix
   ];
 
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     kate # KDE text editor
   ];
 }
