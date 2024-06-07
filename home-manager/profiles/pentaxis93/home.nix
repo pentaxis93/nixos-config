@@ -7,6 +7,7 @@
     # inputs.nix-colors.homeManagerModule
 
     ../../config/editors/default.nix
+    ../../config/file-managers/default.nix
     ../../config/stylix.nix
     ../../config/terminals.nix
     ../../config/zsh.nix

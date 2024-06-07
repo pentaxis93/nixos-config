@@ -386,11 +386,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1717507974,
-        "narHash": "sha256-GOLG43UmgoL3+EhmCmkH2xiwBNa1itmOZKtACoAh4cc=",
+        "lastModified": 1717500082,
+        "narHash": "sha256-D/Rjxbvv0bxAC8yZcA0VunxZBAqojtPXCYRAD1McLd0=",
         "owner": "pentaxis93",
         "repo": "Neve",
-        "rev": "72da7d50371862a05dd4ee30c660b0d986d37e7c",
+        "rev": "5282f67d3430e4853a08bfd70162d86e9d2efa01",
         "type": "github"
       },
       "original": {
