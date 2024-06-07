@@ -1,5 +1,0 @@
-{...}: {
-  stylix = {
-    autoEnable = true;
-  };
-}

@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   stylix = {
-    autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
     image = pkgs.fetchurl {
       url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
