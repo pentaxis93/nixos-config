@@ -17,6 +17,7 @@
       exec-once = [
         "dunst"
         "nm-applet"
+        "pypr --config /home/pentaxis93/.dotfiles/home-manager/profiles/pentaxis93/pyprland.toml"
         "waybar"
       ];
 
@@ -52,10 +53,10 @@
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-        "$mainMod, h, movefocus, l"
-        "$mainMod, j, movefocus, d"
-        "$mainMod, k, movefocus, u"
-        "$mainMod, l, movefocus, r"
+        "$mainMod, H, movefocus, l"
+        "$mainMod, J, movefocus, d"
+        "$mainMod, K, movefocus, u"
+        "$mainMod, L, movefocus, r"
 
         # Switch workspaces
         "$mainMod, 1, workspace, 1"
@@ -81,21 +82,8 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        # Dotfiles
-        "$mainMod, D, togglespecialworkspace, magic"
-        "$mainMod, SHIFT D, movetoworkspace, special:magic"
-
-        # Hyprland
-        "$mainMod, H, togglespecialworkspace, magic"
-        "$mainMod, SHIFT H, movetoworkspace, special:magic"
-
-        # Neve
-        "$mainMod, N, togglespecialworkspace, magic"
-        "$mainMod, SHIFT N, movetoworkspace, special:magic"
-
-        # Gallery
-        "$mainMod, G, togglespecialworkspace, magic"
-        "$mainMod, SHIFT G, movetoworkspace, special:magic"
+        # Scratchpads
+        "$mainMod, D, exec, pypr toggle dotfiles"
       ];
     };
     extraConfig = ''
@@ -127,6 +115,7 @@
     kitty # Terminal
     libnotify # Desktop notifications
     networkmanagerapplet # Network manager
+    pyprland # Hyprland extensions
     rofi-wayland # App launcher
     waybar # Status bar
   ];
