@@ -88,6 +88,7 @@
 
         # Scratchpads
         "$mainMod, D, exec, pypr toggle dotfiles"
+        "$mainMod, S, exec, pypr toggle server"
       ];
     };
     extraConfig = ''
@@ -108,7 +109,7 @@
       }
 
       animations {
-        enabled = true
+        enabled = false
         animation = global, 1, 2, default
       }
     '';
