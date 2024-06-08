@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./waybar.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -117,6 +121,5 @@
     networkmanagerapplet # Network manager
     pyprland # Hyprland extensions
     rofi-wayland # App launcher
-    waybar # Status bar
   ];
 }
