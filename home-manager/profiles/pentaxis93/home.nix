@@ -7,12 +7,12 @@
     # inputs.nix-colors.homeManagerModule
 
     ../../config/editors/default.nix
-    ../../config/hyprland.nix
     ../../config/file-managers/default.nix
     ../../config/terminals.nix
     ../../config/zsh.nix
 
     ./git.nix
+    ./hyprland.nix
     ./stylix.nix
   ];
 

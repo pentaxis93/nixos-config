@@ -9,13 +9,18 @@
         position = "top";
         margin-top = 10;
         height = 40;
+
         modules-left = [
-          "hyprland/window"
+          "hyprland/workspaces"
+          "tray"
         ];
         modules-center = [
-          "hyprland/workspaces"
+          "hyprland/window"
         ];
         modules-right = [
+          "cpu"
+          "memory"
+          "network#wlp41s0"
           "clock"
         ];
       };

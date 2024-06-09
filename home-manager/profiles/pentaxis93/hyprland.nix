@@ -8,7 +8,7 @@
     settings = {
       # Monitors
       monitor = [
-        "HDMI-A-1, 2560x1440, 1080x0, 1"
+        "HDMI-A-1, 2560x1440@144, 1080x0, 1"
         "DP-1, 1920x1080, 0x0, 1, transform, 1"
       ];
 
@@ -89,6 +89,7 @@
         # Scratchpads
         "$mainMod, D, exec, pypr toggle dotfiles"
         "$mainMod, S, exec, pypr toggle server"
+        "$mainMod, T, exec, pypr toggle terminal"
       ];
     };
     extraConfig = ''
