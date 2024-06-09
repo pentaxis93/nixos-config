@@ -16,6 +16,7 @@
 
     ../../config/browsers/default.nix
     ../../config/dev-tools/default.nix
+    ../../config/fonts.nix
     ../../config/network-tools/default.nix
     ../../config/stylix.nix
     ../../config/utilities/default.nix
