@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    dolphin # GUI file manager
     fd # File finder
     mc # Midnight Commander, a terminal file manager
     ranger # Ranger, a vim-style file manager

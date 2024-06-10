@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./nh.nix
+    ./nh.nix # Nix command helper
   ];
 
   environment.systemPackages = with pkgs; [

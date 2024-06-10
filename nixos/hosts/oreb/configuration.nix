@@ -19,6 +19,7 @@
     ../../config/fonts.nix
     ../../config/network-tools/default.nix
     ../../config/stylix.nix
+    ../../config/thunar.nix
     ../../config/utilities/default.nix
 
     ../../config/hyprland.nix
