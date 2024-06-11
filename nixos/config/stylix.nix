@@ -8,10 +8,10 @@
     polarity = "dark";
     fonts = {
       sizes = {
-        applications = 12;
-        terminal = 20;
-        desktop = 12;
-        popups = 12;
+        applications = 14;
+        terminal = 22;
+        desktop = 14;
+        popups = 14;
       };
     };
     cursor = {
