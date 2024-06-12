@@ -6,31 +6,14 @@
   ...
 }: {
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
     ./hardware-configuration.nix
 
     ./config/autologin.nix
 
-    ../../config/browsers/default.nix
-    ../../config/dev-tools/default.nix
-    ../../config/fonts.nix
-    ../../config/network-tools/default.nix
-    ../../config/stylix.nix
-    ../../config/thunar.nix
-    ../../config/utilities/default.nix
+    ../../config/default.nix
 
     ../../config/hyprland.nix
     # ../../config/kde-plasma.nix
-
-    ../../config/zsh.nix
-  ];
-
-  # Install additional packages
-  environment.systemPackages = with pkgs; [
-    gimp # Image manipulation
   ];
 
   nixpkgs = {
