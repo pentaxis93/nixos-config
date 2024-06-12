@@ -6,16 +6,14 @@
   ...
 }: {
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
     ./hardware-configuration.nix
-    ../../config/stylix.nix
-    ../../config/wayland.nix
+
+    ./config/autologin.nix
+
+    ../../config/default.nix
+
+    ../../config/hyprland.nix
+    # ../../config/kde-plasma.nix
   ];
 
   nixpkgs = {
@@ -55,76 +53,8 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  environment.sessionVariables = {
-    FLAKE = "/home/pentaxis93/.dotfiles";
-  };
-
-  # Automatic login
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "pentaxis93";
-
-  # Firefox
-  programs.firefox.enable = true;
-
-  # nh, a nix command helper
-  # TODO: Make default flake work
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/pentaxis93/.dotfiles";
-  };
-
-  # Install additional packages
-  environment.systemPackages = with pkgs; [
-    cowsay # Cow says something
-    curl # Transfer data with urls
-    fd # File finder
-    fortune # A fortune cookie generator
-    gcc # GNU compiler collection for C/C++
-    gimp # Image manipulation
-    git # Version control
-    kate # KDE text editor
-    lazygit # UI for git
-    mc # Midnight Commander, a terminal file manager
-    nerdfonts # Awesome fonts with icons
-    nodejs # Runtime for JavaScript
-    python3 # Python programming language
-    ranger # Ranger, a vim-style file manager
-    ripgrep # Fast search tool
-    tree # Handy directory tree tool
-    wget # Download files from the web
-    xsel # Clipboard utility
-
-    inputs.neve.packages.${pkgs.system}.default
-
-    # Formatters
-    alejandra
-    black
-    google-java-format
-    nodePackages.prettier
-    prettierd
-    rustfmt
-    stylua
-  ];
-
-  # Enable zsh and make default for all users
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  # Default editor
-  environment.variables.EDITOR = "nvim";
-
-  # npm - "node package manager" for web dev
-  programs.npm.enable = true;
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

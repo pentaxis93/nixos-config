@@ -19,7 +19,7 @@
     self,
     nixpkgs,
     home-manager,
-    neve,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -29,29 +29,31 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hosts/hedwig/configuration.nix
-          inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.mark = import ./home-manager/profiles/mark/home.nix;
             home-manager.users.pentaxis93 = import ./home-manager/profiles/pentaxis93/home.nix;
           }
+          inputs.stylix.nixosModules.stylix
         ];
       };
 
       oreb = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/hosts/oreb/configuration.nix
-          inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.pentaxis93 = import ./home-manager/profiles/pentaxis93/home.nix;
           }
+          stylix.nixosModules.stylix
         ];
+        specialArgs = {inherit inputs outputs;};
       };
     };
   };
