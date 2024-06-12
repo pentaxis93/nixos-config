@@ -11,6 +11,8 @@
 
   nixpkgs = {
     overlays = [
+    ];
+    # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
@@ -28,6 +30,7 @@
     };
   };
 
+  # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
