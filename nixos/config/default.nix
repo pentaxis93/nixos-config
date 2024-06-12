@@ -12,5 +12,6 @@
 
   environment.systemPackages = with pkgs; [
     gimp # Image manipulation
+    vlc # Video player
   ];
 }
