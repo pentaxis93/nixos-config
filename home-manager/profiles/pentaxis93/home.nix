@@ -8,6 +8,7 @@
 
     ../../config/editors/default.nix
     ../../config/file-managers.nix
+    ../../config/hexchat.nix
     ../../config/terminals.nix
     ../../config/zsh.nix
 
