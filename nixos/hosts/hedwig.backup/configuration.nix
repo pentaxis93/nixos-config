@@ -6,12 +6,14 @@
   ...
 }: {
   imports = [
+    # If you want to use modules from other flakes (such as nixos-hardware):
+    # inputs.hardware.nixosModules.common-cpu-amd
+    # inputs.hardware.nixosModules.common-ssd
+
+    # You can also split up your configuration and import pieces of it here:
+    # ./users.nix
+
     ./hardware-configuration.nix
-
-    ../../config/default.nix
-
-    ../../config/hyprland.nix
-    # ../../config/kde-plasma.nix
   ];
 
   nixpkgs = {
@@ -51,8 +53,67 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  # Firefox
+  programs.firefox.enable = true;
+
+  # nh, a nix command helper
+  # TODO: Make default flake work
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/pentaxis93/.dotfiles";
+  };
+
+  # Install additional packages
+  environment.systemPackages = with pkgs; [
+    curl # Transfer data with urls
+    fd # File finder
+    gcc # GNU compiler collection for C/C++
+    cowsay # Say something
+    gimp # Image manipulation
+    fortune # A fortune cookie generator
+    git # Version control
+    kate # KDE text editor
+    lazygit # UI for git
+    mc # Midnight Commander, a terminal file manager
+    nerdfonts # Awesome fonts with icons
+    nodejs # Runtime for JavaScript
+    python3 # Python programming language
+    ranger # Ranger, a vim-style file manager
+    ripgrep # Fast search tool
+    tree # Handy directory tree tool
+    wget # Download files from the web
+    xsel # Clipboard utility
+
+    inputs.neve.packages.${pkgs.system}.default
+
+    # Formatters
+    alejandra
+    black
+    google-java-format
+    nodePackages.prettier
+    prettierd
+    rustfmt
+    stylua
+  ];
+
+  # Enable zsh and make default for all users
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
+  # Default editor
+  environment.variables.EDITOR = "nvim";
+
+  # npm - "node package manager" for web dev
+  programs.npm.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # Enable the KDE Plasma Desktop Environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -98,44 +159,20 @@
 
   networking.hostName = "hedwig";
 
-  users.groups.sudo = {};
-
+  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     mark = {
+      initialPassword = "password";
+      isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
-      initialPassword = "Cicacica77";
-      isNormalUser = true;
-      # openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      # ];
     };
+
     pentaxis93 = {
-      extraGroups = ["networkmanager" "wheel" "sudo"];
-      initialPassword = "apiinanrnmasmmhwcmt";
+      initialPassword = "password";
       isNormalUser = true;
-      # openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      # ];
+      extraGroups = ["networkmanager" "wheel"];
     };
   };
-
-  # Configure sudo to not require a password for users in the 'sudo' group
-  security.sudo.extraConfig = ''
-    pentaxis93 ALL=(ALL:ALL) NOPASSWD: ALL
-  '';
-
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = true;
-  #   settings = {
-  # Opinionated: forbid root login through SSH.
-  #     PermitRootLogin = "no";
-  # Opinionated: use keys only.
-  # Remove if you want to SSH using passwords
-  #     PasswordAuthentication = false;
-  #   };
-  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
