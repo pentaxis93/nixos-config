@@ -110,7 +110,7 @@
       }
 
       animations {
-        enabled = false
+        enabled = true
         animation = global, 1, 2, default
       }
     '';
