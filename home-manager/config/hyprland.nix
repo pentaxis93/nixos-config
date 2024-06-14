@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     dunst # Notification daemon
+    grimblast # Screenshot tool
     libnotify # Used by notification daemon
     rofi-wayland # App launcher
     waybar # Wayland bar
