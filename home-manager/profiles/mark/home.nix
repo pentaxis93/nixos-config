@@ -23,7 +23,7 @@
 
   home = {
     username = "mark";
-    homeDirectory = "mark";
+    homeDirectory = "/home/mark";
     sessionVariables = {
       EDITOR = "nvim";
       FLAKE = "/home/mark/.dotfiles";
