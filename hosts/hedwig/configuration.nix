@@ -2,18 +2,16 @@
   inputs,
   lib,
   config,
-  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-
-    ./config/autologin.nix
-    ../common/default.nix
-
-    # ../../config/hyprland.nix
-    ../common/kde-plasma.nix
+    ../common
+    ./autologin.nix
   ];
+
+  hyprland.enable = false;
+  kde-plasma.enable = true;
 
   nixpkgs = {
     overlays = [
@@ -96,37 +94,17 @@
       extraGroups = ["networkmanager" "wheel"];
       initialPassword = "Cicacica77";
       isNormalUser = true;
-      # openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      # ];
     };
     pentaxis93 = {
       extraGroups = ["networkmanager" "wheel" "sudo"];
       initialPassword = "apiinanrnmasmmhwcmt";
       isNormalUser = true;
-      # openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      # ];
     };
   };
 
-  # Configure sudo to not require a password for users in the 'sudo' group
   security.sudo.extraConfig = ''
     pentaxis93 ALL=(ALL:ALL) NOPASSWD: ALL
   '';
-
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = true;
-  #   settings = {
-  # Opinionated: forbid root login through SSH.
-  #     PermitRootLogin = "no";
-  # Opinionated: use keys only.
-  # Remove if you want to SSH using passwords
-  #     PasswordAuthentication = false;
-  #   };
-  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

@@ -1,15 +1,4 @@
 {pkgs, ...}: {
-  programs = {
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-  };
-
-  # Add support for compressed files
   environment.systemPackages = with pkgs; [
     xarchiver # Compress and decompress files
     p7zip # handle 7z files

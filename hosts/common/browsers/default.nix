@@ -1,5 +1,0 @@
-{pkgs, ...}: {
-  imports = [
-    ./firefox.nix
-  ];
-}

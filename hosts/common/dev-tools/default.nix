@@ -9,6 +9,5 @@
     nodejs # Runtime for JavaScript
   ];
 
-  # npm - "node package manager" for web dev
-  programs.npm.enable = true;
+  programs.npm.enable = true; # Package manager for web dev
 }

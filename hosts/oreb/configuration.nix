@@ -2,33 +2,18 @@
   inputs,
   lib,
   config,
-  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-
-    ./config/autologin.nix
-
-    ../common/default.nix
-
-    ../common/hyprland.nix
-    # ../../config/kde-plasma.nix
+    ../common
+    ./autologin.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+  hyprland.enable = true;
+  kde-plasma.enable = false;
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
+  nixpkgs = {
     config = {
       allowUnfree = true;
     };
