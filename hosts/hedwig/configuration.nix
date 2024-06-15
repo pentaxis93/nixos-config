@@ -103,7 +103,7 @@
   };
 
   security.sudo.extraConfig = ''
-    pentaxis93 ALL=(ALL:ALL) NOPASSWD: ALL
+    %sudo ALL=(ALL:ALL) NOPASSWD: ALL
   '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
