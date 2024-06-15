@@ -9,15 +9,26 @@
     ./hardware-configuration.nix
 
     ./config/autologin.nix
-    ../../config/default.nix
 
-    # ../../config/hyprland.nix
-    ../../config/kde-plasma.nix
+    ../common/default.nix
+
+    ../common/hyprland.nix
+    # ../../config/kde-plasma.nix
   ];
 
   nixpkgs = {
     overlays = [
+      # If you want to use overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
     ];
+    # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
     };
@@ -87,22 +98,19 @@
     pulse.enable = true;
   };
 
-  networking.hostName = "hedwig";
+  networking.hostName = "oreb";
 
   users.groups.sudo = {};
 
   users.users = {
     mark = {
-      extraGroups = ["networkmanager" "wheel"];
-      initialPassword = "Cicacica77";
+      extraGroups = ["networkmanager" "wheel" "sudo"];
+      initialPassword = "password";
       isNormalUser = true;
-      # openssh.authorizedKeys.keys = [
-      # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      # ];
     };
     pentaxis93 = {
       extraGroups = ["networkmanager" "wheel" "sudo"];
-      initialPassword = "apiinanrnmasmmhwcmt";
+      initialPassword = "password";
       isNormalUser = true;
       # openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect

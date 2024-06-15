@@ -2,7 +2,7 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {...}: {
   imports = [
-    ../../config/default.nix
+    ../common/default.nix
 
     ./git.nix
     ./hyprland.nix

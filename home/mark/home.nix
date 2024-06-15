@@ -2,8 +2,8 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {...}: {
   imports = [
-    ../../config/default.nix
-    ../../config/vscode.nix
+    ../common/default.nix
+    ../common/vscode.nix
 
     ./git.nix
     # ./hyprland.nix
