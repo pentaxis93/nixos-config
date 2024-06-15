@@ -3,9 +3,10 @@
 {...}: {
   imports = [
     ../../config/default.nix
+    ../../config/vscode.nix
 
     ./git.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     ./stylix.nix
   ];
 

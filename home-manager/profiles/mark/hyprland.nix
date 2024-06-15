@@ -8,8 +8,7 @@
     settings = {
       # Monitors
       monitor = [
-        "HDMI-A-1, 2560x1440@144, 1080x0, 1"
-        "DP-1, 1920x1080, 0x0, 1, transform, 1"
+        "eDP-1, 1920x1080@60, 0x0, 1"
       ];
 
       # Applications
@@ -21,22 +20,8 @@
       exec-once = [
         "dunst"
         "nm-applet"
-        "pypr --config /home/pentaxis93/.dotfiles/home-manager/profiles/pentaxis93/pyprland.toml"
+        "pypr --config /home/mark/.dotfiles/home-manager/profiles/mark/pyprland.toml"
         "waybar"
-      ];
-
-      # Workspaces
-      workspace = [
-        "1, monitor:DP-1"
-        "2, monitor:DP-1"
-        "3, monitor:DP-1"
-        "4, monitor:HDMI-A-1"
-        "5, monitor:HDMI-A-1"
-        "6, monitor:HDMI-A-1"
-        "7, monitor:HDMI-A-1"
-        "8, monitor:HDMI-A-1"
-        "9, monitor:HDMI-A-1"
-        "10, monitor:HDMI-A-1"
       ];
 
       # Keybindings
@@ -105,7 +90,7 @@
       }
 
       animations {
-        enabled = false
+        enabled = true
         animation = global, 1, 2, default
       }
     '';

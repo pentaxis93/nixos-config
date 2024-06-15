@@ -1,0 +1,8 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.dotfiles]
+command = "kitty -e /run/current-system/sw/bin/bash -c 'cd ~/.dotfiles && nvim'"
+
+[scratchpads.terminal]
+command = "kitty"
