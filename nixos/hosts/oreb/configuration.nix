@@ -103,6 +103,11 @@
   users.groups.sudo = {};
 
   users.users = {
+    mark = {
+      extraGroups = ["networkmanager" "wheel" "sudo"];
+      initialPassword = "password";
+      isNormalUser = true;
+    };
     pentaxis93 = {
       extraGroups = ["networkmanager" "wheel" "sudo"];
       initialPassword = "password";
