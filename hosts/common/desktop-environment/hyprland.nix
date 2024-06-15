@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -9,6 +10,10 @@
 
   config = lib.mkIf config.hyprland.enable {
     programs.hyprland.enable = true;
-    # xdg.portal.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
   };
 }
