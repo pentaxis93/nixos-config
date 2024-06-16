@@ -4,7 +4,7 @@
   imports = [
     ../common/default.nix
 
-    ./default.nix
+    ./.
   ];
 
   nixpkgs = {

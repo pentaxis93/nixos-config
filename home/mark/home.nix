@@ -5,7 +5,7 @@
     ../common/default.nix
     ../common/vscode.nix
 
-    ./default.nix
+    ./.
   ];
 
   nixpkgs = {

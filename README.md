@@ -2,4 +2,4 @@
 
 - [ ] Add gpu monitor tools
 - [ ] Add kittysay
-- [ ] Set theme for rofi
+- [x] Set theme for rofi
