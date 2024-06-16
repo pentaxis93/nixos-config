@@ -1,9 +1,13 @@
 {pkgs, ...}: {
   programs.ranger = {
     enable = true;
+    settings = {
+      preview_images = true;
+      preview_images_method = "kitty";
+    };
   };
 
-  home.packages = with pkgs; [
+  programs.ranger.extraPackages = with pkgs; [
     file # for determining file types
     libcaca # for ASCII-art image previews
     imagemagick # for image previews
