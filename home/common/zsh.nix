@@ -9,8 +9,14 @@
       enable = true;
       theme = "robbyrussell";
       plugins = [
+        "copybuffer"
+        "copyfile"
+        "dirhistory"
         "git"
+        "history"
+        "sudo"
         "vi-mode"
+        "web-search"
         "z"
       ];
     };
