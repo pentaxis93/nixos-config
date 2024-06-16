@@ -1,10 +1,16 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
-    ./editors/default.nix
-    ./file-managers.nix
     ./hexchat.nix
+    ./hyprland.nix
+    ./kitty.nix
+    ./neve.nix
     ./obs-studio.nix
-    ./terminals.nix
+    ./ranger.nix
+    ./vscode.nix
     ./zsh.nix
+  ];
+
+  home.packages = with pkgs; [
+    kate # KDE text editor
   ];
 }

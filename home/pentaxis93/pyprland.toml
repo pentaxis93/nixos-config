@@ -2,7 +2,7 @@
 plugins = ["scratchpads"]
 
 [scratchpads.dotfiles]
-command = "kitty -e /run/current-system/sw/bin/bash -c 'cd ~/.dotfiles && nvim'"
+command = "kitty -e /run/current-system/sw/bin/bash -c 'cd ~/.dotfiles && ranger'"
 
 [scratchpads.server]
 command = "kitty -e /run/current-system/sw/bin/bash -c 'cd ~/Code/5th-avegallery/ && npm run dev'"

@@ -10,7 +10,6 @@
     };
 
     neve.url = "github:pentaxis93/Neve";
-    # neve.url = "github:redyf/Neve";
 
     stylix.url = "github:danth/stylix";
   };
@@ -30,11 +29,15 @@
           ./hosts/hedwig/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.mark = import ./home/mark/home.nix;
-            home-manager.users.pentaxis93 = import ./home/pentaxis93/home.nix;
+            home-manager = {
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = {inherit inputs;};
+              users = {
+                mark = import ./home/mark/home.nix;
+                pentaxis93 = import ./home/pentaxis93/home.nix;
+              };
+            };
           }
           inputs.stylix.nixosModules.stylix
         ];
@@ -46,11 +49,15 @@
           ./hosts/oreb/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.mark = import ./home/mark/home.nix;
-            home-manager.users.pentaxis93 = import ./home/pentaxis93/home.nix;
+            home-manager = {
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = {inherit inputs;};
+              users = {
+                mark = import ./home/mark/home.nix;
+                pentaxis93 = import ./home/pentaxis93/home.nix;
+              };
+            };
           }
           stylix.nixosModules.stylix
         ];

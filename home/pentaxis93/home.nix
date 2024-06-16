@@ -4,9 +4,7 @@
   imports = [
     ../common/default.nix
 
-    ./git.nix
-    ./hyprland.nix
-    ./stylix.nix
+    ./default.nix
   ];
 
   nixpkgs = {

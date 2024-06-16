@@ -21,7 +21,7 @@
       exec-once = [
         "dunst"
         "nm-applet"
-        "pypr --config /home/pentaxis93/.dotfiles/home-manager/profiles/pentaxis93/pyprland.toml"
+        "pypr --config /home/pentaxis93/.dotfiles/home/pentaxis93/pyprland.toml"
         "waybar"
       ];
 
@@ -118,7 +118,6 @@
 
   home.packages = with pkgs; [
     dunst # Notification daemon
-    kitty # Terminal
     libnotify # Desktop notifications
     networkmanagerapplet # Network manager
     pyprland # Hyprland extensions

@@ -1,11 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
-  programs.hyprland = {
+{pkgs, ...}: {
+  wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
   };
 
   programs.zsh.sessionVariables = {
@@ -21,6 +16,8 @@
     dunst # Notification daemon
     grimblast # Screenshot tool
     libnotify # Used by notification daemon
+    networkmanagerapplet # Network manager
+    pyprland # Hyprland extensions
     rofi-wayland # App launcher
     waybar # Wayland bar
   ];

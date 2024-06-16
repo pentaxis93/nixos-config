@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./file-managers.nix
     ./nh.nix # Nix command helper
     ./zsh.nix # Z shell
   ];

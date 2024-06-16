@@ -5,9 +5,7 @@
     ../common/default.nix
     ../common/vscode.nix
 
-    ./git.nix
-    # ./hyprland.nix
-    ./stylix.nix
+    ./default.nix
   ];
 
   nixpkgs = {
