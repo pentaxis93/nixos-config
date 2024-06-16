@@ -7,6 +7,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    nvtop # GPU monitor
     vlc # Video player
   ];
 }
