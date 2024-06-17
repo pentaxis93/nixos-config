@@ -9,8 +9,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Neovim configuration
     neve.url = "github:pentaxis93/Neve";
 
+    # Secrets management
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # System-wide themes
     stylix.url = "github:danth/stylix";
   };
 
