@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   imports = [
+    ./desktop-apps
+    ./desktop-environment
+    ./dev-tools
     ./file-managers.nix
     ./nh.nix # Nix command helper
     ./zsh.nix # Z shell
