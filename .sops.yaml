@@ -1,0 +1,11 @@
+keys:
+  - &users:
+    - &pentaxis93 age1c0m4jh06x0crvxeh23urcny0z60pwpkwv8knw7u9n7a7elruxfxsu7vry7
+  - &hosts:
+    - &oreb age15zmv9zgf2rs3mzgurcj5nzu669lqt3pfua37yv6dt8m3hhlr35yqfqx069
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+        - *oreb
+        - *pentaxis93

@@ -4,5 +4,6 @@
     ./dev-tools
     ./desktop-apps
     ./desktop-environment
+    ./secrets.nix
   ];
 }
