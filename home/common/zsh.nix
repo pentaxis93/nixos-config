@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -26,8 +26,13 @@
     };
   };
 
-  home.sessionVariables = {
-    ZSH_THEME = "random";
-    ZSH_THEME_RANDOM_IGNORED = "()";
+  home = {
+    packages = with pkgs; [
+      eza
+    ];
+    sessionVariables = {
+      ZSH_THEME = "random";
+      ZSH_THEME_RANDOM_IGNORED = "()";
+    };
   };
 }
