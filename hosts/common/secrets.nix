@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
@@ -16,9 +20,14 @@
       generateKey = true;
     };
 
-    # Secrets will be output to /run/secrets
+    # These secrets will be output to /run/secrets
     secrets = {
-      pentaxis93-password = {};
+      rdg-gmail-smtp-password = {};
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    age # Modern encryption tool
+    sops # To access and edit encryped secrets file
+  ];
 }
