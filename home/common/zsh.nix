@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -7,7 +7,6 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
       plugins = [
         "copybuffer"
         "copyfile"
@@ -24,5 +23,10 @@
     shellAliases = {
       vi = "nvim";
     };
+  };
+
+  home.sessionVariables = {
+    ZSH_THEME = "random";
+    ZSH_THEME_RANDOM_IGNORED = "()";
   };
 }
