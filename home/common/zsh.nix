@@ -21,6 +21,7 @@
     };
 
     shellAliases = {
+      cd = "z";
       vi = "nvim";
     };
   };
