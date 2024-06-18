@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./mark.nix
-    ./pentaxis93.nix
+    ./mark
+    ./pentaxis93
   ];
 }

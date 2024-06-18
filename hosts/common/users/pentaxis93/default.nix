@@ -4,17 +4,18 @@
   ...
 }: {
   # Decrypt password as hash before user is logged in
-  sops.secrets.pentaxis93-password.neededForUsers = true;
+  sops.secrets."account-passwords/pentaxis93".neededForUsers = true;
   # Required for sops to work; password can be set only by sops
   users.mutableUsers = false;
 
   users.users.pentaxis93 = {
     extraGroups = ["networkmanager" "wheel" "sudo"];
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.pentaxis93-password.path;
-    # openssh.authorizedKeys.keys = [
-    # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-    # ];
+    hashedPasswordFile = config.sops.secrets."account-passwords/pentaxis93".path;
+
+    openssh.authorizedKeys.keys = [
+      (builtins.readFile ./keys/id_ed25519.pub)
+    ];
   };
 
   # This setups a SSH server. Very important if you're setting up a headless system.

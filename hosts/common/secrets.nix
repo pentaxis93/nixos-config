@@ -22,7 +22,7 @@
 
     # These secrets will be output to /run/secrets
     secrets = {
-      rdg-gmail-smtp-password = {};
+      "smtp/rdg-gmail" = {};
     };
   };
 
