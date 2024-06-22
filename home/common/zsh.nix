@@ -32,8 +32,7 @@
       eza
     ];
     sessionVariables = {
-      ZSH_THEME = "random";
-      ZSH_THEME_RANDOM_IGNORED = "()";
+      ZSH_THEME = "amuse";
     };
   };
 }
