@@ -32,7 +32,7 @@
       eza
     ];
     sessionVariables = {
-      ZSH_THEME = "amuse";
+      ZSH_THEME = "robbyrussell";
     };
   };
 }
