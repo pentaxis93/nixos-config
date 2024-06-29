@@ -95,11 +95,11 @@
       initialPassword = "Cicacica77";
       isNormalUser = true;
     };
-    pentaxis93 = {
-      extraGroups = ["networkmanager" "wheel" "sudo"];
-      initialPassword = "apiinanrnmasmmhwcmt";
-      isNormalUser = true;
-    };
+    # pentaxis93 = {
+    #   extraGroups = ["networkmanager" "wheel" "sudo"];
+    #   initialPassword = "apiinanrnmasmmhwcmt";
+    #   isNormalUser = true;
+    # };
   };
 
   security.sudo.extraConfig = ''
