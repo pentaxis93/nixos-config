@@ -13,6 +13,7 @@
     curl # Transfer data with urls
     fortune # A fortune cookie generator
     wget # Download files from the web
+    zoom-us # Video conferencing
   ];
 
   networking.networkmanager.enable = true;
