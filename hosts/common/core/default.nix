@@ -12,6 +12,7 @@
     cowsay # Cow says something
     curl # Transfer data with urls
     fortune # A fortune cookie generator
+    gparted # Partition editor
     wget # Download files from the web
     zoom-us # Video conferencing
   ];
