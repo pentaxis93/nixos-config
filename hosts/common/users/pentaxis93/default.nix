@@ -1,17 +1,8 @@
-{
-  config,
-  inputs,
-  ...
-}: {
-  # Decrypt password as hash before user is logged in
-  sops.secrets."account-passwords/pentaxis93".neededForUsers = true;
-  # Required for sops to work; password can be set only by sops
-  users.mutableUsers = false;
-
+{...}: {
   users.users.pentaxis93 = {
     extraGroups = ["networkmanager" "wheel" "sudo"];
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."account-passwords/pentaxis93".path;
+    initialPassword = "password";
 
     openssh.authorizedKeys.keys = [
       (builtins.readFile ./keys/id_ed25519.pub)
