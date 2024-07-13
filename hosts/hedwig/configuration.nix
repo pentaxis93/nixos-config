@@ -11,7 +11,7 @@
   ];
 
   hyprland.enable = true;
-  kde-plasma.enable = true;
+  kde-plasma.enable = false;
 
   nixpkgs = {
     overlays = [
