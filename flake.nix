@@ -35,7 +35,7 @@
               extraSpecialArgs = {inherit inputs;};
               users = {
                 mark = import ./home/mark/home.nix;
-                pentaxis93 = import ./home/pentaxis93/home.nix;
+                # pentaxis93 = import ./home/pentaxis93/home.nix;
               };
             };
           }
