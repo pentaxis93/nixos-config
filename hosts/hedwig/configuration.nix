@@ -10,7 +10,7 @@
     ./autologin.nix
   ];
 
-  hyprland.enable = false;
+  hyprland.enable = true;
   kde-plasma.enable = true;
 
   nixpkgs = {
