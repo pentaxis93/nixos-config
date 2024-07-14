@@ -11,13 +11,11 @@
       ms-python.vscode-pylance # Python language server support
 
       # Development tools
-      ritwickdey.liveserver # Development local server with live reload
       visualstudioexptteam.vscodeintellicode # AI-assisted coding
       wakatime.vscode-wakatime # Log your coding
 
       # Quality of life
       esbenp.prettier-vscode # Automatically formats your code
-      _2gua.rainbow-brackets # Color your brackets
       christian-kohler.path-intellisense # Autocompletes filenames
     ];
   };

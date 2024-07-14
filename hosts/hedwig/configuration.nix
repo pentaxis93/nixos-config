@@ -10,8 +10,8 @@
     ./autologin.nix
   ];
 
-  hyprland.enable = false;
-  kde-plasma.enable = true;
+  hyprland.enable = true;
+  kde-plasma.enable = false;
 
   nixpkgs = {
     overlays = [
