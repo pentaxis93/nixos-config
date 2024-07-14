@@ -75,6 +75,7 @@
     extraConfig = ''
       general {
         border_size = 2
+        col.inactive_border = rgb(646464)
         gaps_in = 5
         gaps_out = 10
         layout = master
@@ -87,6 +88,13 @@
         rounding = 5
         shadow_range = 4
         shadow_render_power = 3
+      }
+
+      input {
+        touchpad {
+          disable_while_typing = false
+          natural_scroll = true
+        }
       }
 
       animations {
