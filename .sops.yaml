@@ -1,0 +1,17 @@
+keys:
+  - &users:
+    - &mark age1x5jkjmswugdzwsspgyxhjlsuax06k3n8vht55z3vffn8c8wkw4hqnf8q9v
+    - &meli age18z82xa40apf8e2sf3fsj03glfz47d3c2x4gyc2x43kkahhqa3ynsmajpmv
+    - &pentaxis93 age1c0m4jh06x0crvxeh23urcny0z60pwpkwv8knw7u9n7a7elruxfxsu7vry7
+  - &hosts:
+    - &hedwig age1g8sshc2qwwgrhfvpyh87yzl3m0lmz6eev2a5z0uwxgmjj27dqgkqlaa8gr
+    - &oreb age15zmv9zgf2rs3mzgurcj5nzu669lqt3pfua37yv6dt8m3hhlr35yqfqx069
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+        - *hedwig
+        - *mark
+        - *meli
+        - *oreb
+        - *pentaxis93

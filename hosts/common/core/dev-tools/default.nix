@@ -6,6 +6,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    cloc # Count lines of code
     gcc # GNU compiler collection for C/C++
     nodejs # Runtime for JavaScript
   ];

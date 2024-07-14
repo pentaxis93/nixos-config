@@ -6,6 +6,7 @@
     ./neve.nix
     ./obs-studio.nix
     ./ranger.nix
+    ./taskwarrior.nix
     ./vscode.nix
     ./zsh.nix
   ];

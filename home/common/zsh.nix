@@ -7,7 +7,6 @@
 
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";
       plugins = [
         "copybuffer"
         "copyfile"
@@ -22,7 +21,18 @@
     };
 
     shellAliases = {
+      cd = "z";
+      ls = "eza";
       vi = "nvim";
+    };
+  };
+
+  home = {
+    packages = with pkgs; [
+      eza
+    ];
+    sessionVariables = {
+      ZSH_THEME = "robbyrussell";
     };
   };
 }

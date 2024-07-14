@@ -8,7 +8,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    calibre # E-book library and reader
     nvtop # GPU monitor
+    okular # PDF viewer
     vlc # Video player
   ];
 }

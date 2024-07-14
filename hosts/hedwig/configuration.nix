@@ -92,14 +92,16 @@
   users.users = {
     mark = {
       extraGroups = ["networkmanager" "wheel"];
-      initialPassword = "Cicacica77";
       isNormalUser = true;
     };
-    # pentaxis93 = {
-    #   extraGroups = ["networkmanager" "wheel" "sudo"];
-    #   initialPassword = "apiinanrnmasmmhwcmt";
-    #   isNormalUser = true;
-    # };
+    meli = {
+      extraGroups = ["networkmanager" "wheel"];
+      isNormalUser = true;
+    };
+    pentaxis93 = {
+      extraGroups = ["networkmanager" "wheel" "sudo"];
+      isNormalUser = true;
+    };
   };
 
   security.sudo.extraConfig = ''

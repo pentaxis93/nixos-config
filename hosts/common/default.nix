@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./core
-    ./dev-tools
-    ./desktop-apps
-    ./desktop-environment
+    ./users
+    ./secrets.nix
   ];
 }

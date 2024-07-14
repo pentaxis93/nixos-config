@@ -20,5 +20,6 @@
     pyprland # Hyprland extensions
     rofi-wayland # App launcher
     waybar # Wayland bar
+    wl-clipboard # Command line copy/paste utilities
   ];
 }
