@@ -18,6 +18,7 @@
         ];
         modules-right = [
           "tray"
+          "pulseaudio"
           "battery"
           "clock"
         ];
@@ -32,6 +33,15 @@
           icon-size = 21;
           show-passive-items = true;
         };
+        pulseaudio = {
+          format = "{volume}% {icon}";
+          format-bluetooth = "{volume}% {icon}";
+          format-muted = "0% 󰖁";
+          format-icons = ["󰕿" "󰖀" "󰕾"];
+          on-click = "sh -c 'if command -v pavucontrol >/dev/null; then pavucontrol; else alacritty -e alsamixer; fi'";
+          tooltip = true;
+        };
+
         battery = {
           format = "{capacity}% {icon}";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
@@ -46,7 +56,6 @@
             capacity=$(cat /sys/class/power_supply/BAT0/capacity)
             warning_file="/waybar/tmp/battery_warning_sent"
             critical_file="/waybar/tmp/battery_critical_sent"
-
             if [ $capacity -le 5 ]; then
               if [ ! -f "$critical_file" ]; then
                 notify-send -u critical "Battery Critical" "Battery level is $capacity%!"
@@ -91,6 +100,7 @@
       }
       #clock,
       #battery,
+      #pulseaudio,
       #tray {
         padding: 0 10px;
         margin: 0 4px;
@@ -106,6 +116,12 @@
         color: #ffbe61;
       }
       #battery.critical:not(.charging) {
+        color: #ff5555;
+      }
+      #pulseaudio {
+        color: #ffffff;
+      }
+      #pulseaudio.muted {
         color: #ff5555;
       }
     '';

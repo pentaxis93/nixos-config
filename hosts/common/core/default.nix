@@ -9,6 +9,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    pavucontrol # Volume control
     cowsay # Cow says something
     curl # Transfer data with urls
     fortune # A fortune cookie generator
