@@ -41,7 +41,6 @@
           on-click = "sh -c 'if command -v pavucontrol >/dev/null; then pavucontrol; else alacritty -e alsamixer; fi'";
           tooltip = true;
         };
-
         battery = {
           format = "{capacity}% {icon}";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
@@ -54,20 +53,34 @@
           };
           on-update = ''
             capacity=$(cat /sys/class/power_supply/BAT0/capacity)
-            warning_file="/waybar/tmp/battery_warning_sent"
-            critical_file="/waybar/tmp/battery_critical_sent"
-            if [ $capacity -le 5 ]; then
-              if [ ! -f "$critical_file" ]; then
-                notify-send -u critical "Battery Critical" "Battery level is $capacity%!"
-                touch "$critical_file"
+            power_supply_status=$(cat /sys/class/power_supply/BAT0/status)
+            warning_file="/tmp/battery_warning_sent"
+            critical_file="/tmp/battery_critical_sent"
+
+            if [ "$power_supply_status" = "Charging" ] || [ "$power_supply_status" = "Full" ]; then
+              if [ -f "$critical_file" ]; then
+                dunstify -C 9000  # Assuming 9000 is the ID for the critical notification
+                rm -f "$critical_file"
               fi
-            elif [ $capacity -le 15 ]; then
-              if [ ! -f "$warning_file" ]; then
-                notify-send -u normal "Battery Warning" "Battery level is $capacity%"
-                touch "$warning_file"
+              if [ -f "$warning_file" ]; then
+                dunstify -C 9001  # Assuming 9001 is the ID for the warning notification
+                rm -f "$warning_file"
               fi
-            elif [ $capacity -gt 15 ]; then
-              rm -f "$warning_file" "$critical_file"
+            elif [ $capacity -le 5 ] && [ ! -f "$critical_file" ]; then
+              dunstify -r 9000 -u critical -t 0 "Battery Critical" "Battery level is critical!\nPlug you're device in NOW!!!"
+              touch "$critical_file"
+              if [ -f "$warning_file" ]; then
+                dunstify -C 9001
+                rm -f "$warning_file"
+              fi
+            elif [ $capacity -le 15 ] && [ ! -f "$warning_file" ] && [ ! -f "$critical_file" ]; then
+              dunstify -r 9001 -u normal -t 0 "Battery Warning" "Battery level is low.\nPlease plug you're device in!"
+              touch "$warning_file"
+            elif [ $capacity -gt 15 ] && [ "$power_supply_status" = "Discharging" ]; then
+              if [ -f "$warning_file" ]; then
+                dunstify -C 9001
+                rm -f "$warning_file"
+              fi
             fi
           '';
         };
