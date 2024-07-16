@@ -29,6 +29,8 @@
       bind = [
         # Main actions
         "$mainMod, Q, exec, $terminal"
+        "$mainMod, W, exec, code"
+        "$mainMod, E, exec, firefox"
         "$mainMod, C, killactive"
         "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
