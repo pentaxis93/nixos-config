@@ -12,11 +12,13 @@
 
       # Development tools
       visualstudioexptteam.vscodeintellicode # AI-assisted coding
-      wakatime.vscode-wakatime # Log your coding
 
       # Quality of life
       esbenp.prettier-vscode # Automatically formats your code
       christian-kohler.path-intellisense # Autocompletes filenames
     ];
+    userSettings = {
+      "editor.fontSize" = 22;
+    };
   };
 }
