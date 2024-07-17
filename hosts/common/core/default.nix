@@ -9,6 +9,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    wine # Windows emulator
     pavucontrol # Volume control
     cowsay # Cow says something
     curl # Transfer data with urls
