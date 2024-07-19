@@ -4,5 +4,6 @@
     ./hyprland.nix
     ./stylix.nix
     ./waybar.nix
+    ./go.nix
   ];
 }
